@@ -5,7 +5,7 @@ function MyTable(props) {
     <table className="table">
       <thead>
         <tr>
-          <th>Description</th>
+          <th>Task Description</th>
           <th>Mark Complete</th>
         </tr>
       </thead>

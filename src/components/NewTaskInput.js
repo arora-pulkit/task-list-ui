@@ -1,17 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
+import { saveTask } from "../actions/taskActions";
 
 function NewTaskInput(props) {
+  const [newTask, setNewTask] = useState("");
+
+  function onNewTaskChange(event) {
+    setNewTask(event.target.value);
+  }
+
+  function handleSubmitNewTask(event) {
+    event.preventDefault();
+    saveTask(newTask).then(
+      (res) => {
+        setNewTask("");
+      },
+      (err) => {
+        alert("Oops! Failed to add a new task");
+      }
+    );
+  }
   return (
-    <form onSubmit={props.onSubmit}>
+    <form onSubmit={handleSubmitNewTask}>
       <div className="form-group">
-        <label htmlFor={props.id}>{props.label}</label>
         <div className="field">
           <input
             id={props.id}
-            onChange={props.onChange}
+            onChange={onNewTaskChange}
             name={props.name}
             className="form-control"
-            value={props.value}
+            value={newTask}
           />
         </div>
       </div>

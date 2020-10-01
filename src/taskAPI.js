@@ -5,9 +5,15 @@ export function addTask(description) {
     body: JSON.stringify({
       description: description,
     }),
-  });
+  }).then((res) => res.json());
 }
 
 export function getTasks() {
-  return fetch("http://localhost:5000/tasks");
+  return fetch("http://localhost:5000/tasks").then((res) => res.json());
+}
+
+export function deleteTask(id) {
+  return fetch("http://localhost:5000/task?id=" + id, {
+    method: "DELETE",
+  });
 }
