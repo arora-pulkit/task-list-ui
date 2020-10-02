@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { saveTask } from "../actions/taskActions";
 
-function NewTaskInput(props) {
+function AddNewTask(props) {
   const [newTask, setNewTask] = useState("");
 
   function onNewTaskChange(event) {
@@ -36,4 +36,4 @@ function NewTaskInput(props) {
   );
 }
 
-export default NewTaskInput;
+export default AddNewTask;

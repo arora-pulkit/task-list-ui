@@ -14,7 +14,7 @@ export function saveTask(description) {
   });
 }
 
-export function loadTasks() {
+export function loadTasks(from = "") {
   return taskAPI.getTasks().then((tasks) => {
     dispatcher.dispatch({
       actionType: actionTypes.LOAD_TASK,
